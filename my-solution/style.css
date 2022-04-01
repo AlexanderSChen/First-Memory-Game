@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#start {
+    height: 90vh;
+    color: purple;
+    /* position: relative; */
+    transform: rotateX(45deg);
+    line-height: 0.75;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 23px;
+}
+
+.best-score-column {
+    font-size: 3rem;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#title {
+    font-size: 8rem;
+    perspective: 600px;
+    color: orchid;
+}
+
+body {
+    height: 100vh;
+    /* background: #ffafaf; */
+    background: -webkit-linear-gradient(
+        to right,
+        #f6a8a8,
+        #74ebd5
+    ); 
+    background: linear-gradient(
+        to bottom,
+        #e4f0b8,
+        #f3a2a2
+    ); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(6, 8rem);
+    grid-template-rows: repeat(4, 8rem);
+    grid-gap: 1.5rem;
+    /* background: white; */
+    /* perspective in parent element allows 3d flipping effect to work with rotateY */
+    perspective: 800px;
+}
+
+.card {
+    position: relative;
+    /* preserve-3d is done in the child element */
+    transform-style: preserve-3d;
+    transition: transform 2s ease;
+    /* transform: rotateY(180deg); 
+    Move this to when the card is clicked */
+    box-shadow: rgba(0,0,0,0.2) 0px 10px 15px;
+}
+
+.front, .back {
+    max-width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.back {
+    background: rgb(197, 184, 184);
+    backface-visibility: hidden;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800px;
+    /* margin: auto; */
+    vertical-align: middle;
+    line-height: 125px;
+    text-shadow: rgba(0,0,0,0.2) 0px 10px 15px;
+}
+
+.toggleCard {
+    transform: rotateY(180deg);
+}
+
+#current-score {
+    position: fixed;
+    /* left: 0; */
+    justify-content: center;
+    font-size: 5rem;
+}
+
+#end {
+    display: flex;
+    position: absolute; 
+    bottom: 0;
+}
+#end a{
+    font-size: 3rem;
+    text-decoration: none;
+    color: crimson;
+}
